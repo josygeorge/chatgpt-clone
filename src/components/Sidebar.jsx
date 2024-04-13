@@ -1,7 +1,20 @@
 import React from 'react';
 import gptLogo from '../assets/ai-chatgpt.svg';
+import ChatHistoryMsgSVG from './svg_files/ChatHistoryMsgSVG';
+import SettingsSVG from './svg_files/SettingsSVG';
+import ProfileSVG from './svg_files/ProfileSVG';
 
 const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
+  const svgArr = [
+    {
+      iconComponent: <SettingsSVG />,
+      iconName: 'Settings',
+    },
+    {
+      iconComponent: <ProfileSVG />,
+      iconName: 'Profile',
+    },
+  ];
   return (
     <div
       className={`${
@@ -43,39 +56,42 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
               </button>
             </div>
             <div className='h-[75%]'>
-              <div className='py-3 border text-center mt-4 text-light flex items-center justify-center cursor-pointer hover:bg-slate-600'>
-                <span className='mr-2'>
-                  <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    width='24'
-                    height='24'
-                    viewBox='0 0 24 24'
-                    fill='none'
-                    stroke='currentColor'
-                    stroke-width='2'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
-                    class='icon icon-tabler icons-tabler-outline icon-tabler-message'
-                  >
-                    <path stroke='none' d='M0 0h24v24H0z' fill='none' />
-                    <path d='M8 9h8' />
-                    <path d='M8 13h6' />
-                    <path d='M18 4a3 3 0 0 1 3 3v8a3 3 0 0 1 -3 3h-5l-5 3v-3h-2a3 3 0 0 1 -3 -3v-8a3 3 0 0 1 3 -3h12z' />
-                  </svg>
-                </span>
-                <h1>Chat History</h1>
-              </div>
+              {/* Use map function to loop the chat history */}
+              {[1, 2, 3, 4, 5].map((item, index) => (
+                <div
+                  key={index}
+                  className='py-3 rounded  text-center mt-4 text-light flex items-center justify-center cursor-pointer hover:bg-slate-600'
+                >
+                  <span className='mr-2'>
+                    <ChatHistoryMsgSVG />
+                  </span>
+                  <h1>Chat History</h1>
+                </div>
+              ))}
             </div>
 
-            <ul className='mt-4'>
-              <li className='py-2 hover:bg-gray-700 cursor-pointer border rounded'>
-                + New Chat
+            <ul className='mt-4 border-t-2'>
+              {svgArr.map((svg) => (
+                <li
+                  key={svg.iconName}
+                  className='mt-4 py-2 hover:bg-gray-700 cursor-pointer border rounded flex items-center justify-center'
+                >
+                  <span className='mr-2'>{svg.iconComponent}</span>
+                  <h1>{svg.iconName}</h1>
+                </li>
+              ))}
+              {/* <li className='mt-4 py-2 hover:bg-gray-700 cursor-pointer border rounded'>
+                <span>
+                  <SettingsSVG />
+                </span>
+                Settings
               </li>
-              <li className='py-2 hover:bg-gray-700 cursor-pointer'>Link 2</li>
-              <li className='py-2 hover:bg-gray-700 cursor-pointer'>Link 3</li>
-              <li className='py-2 hover:bg-gray-700 cursor-pointer'>Link 3</li>
-              <li className='py-2 hover:bg-gray-700 cursor-pointer'>Link 3</li>
-              <li className='py-2 hover:bg-gray-700 cursor-pointer'>Link 3</li>
+              <li className='mt-4 py-2 hover:bg-gray-700 cursor-pointer border rounded'>
+                <span>
+                  <ProfileSVG />
+                </span>
+                Profile
+              </li> */}
               {/* Add more sidebar links as needed */}
             </ul>
           </div>

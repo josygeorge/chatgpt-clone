@@ -5,7 +5,7 @@ import Sidebar from './components/Sidebar';
 //import Navbar from './components/Navbar';
 
 function App() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
