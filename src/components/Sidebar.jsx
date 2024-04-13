@@ -5,6 +5,7 @@ import SettingsSVG from './svg_files/SettingsSVG';
 import ProfileSVG from './svg_files/ProfileSVG';
 
 const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
+  /* Arr of objects to Loop through svg components */
   const svgArr = [
     {
       iconComponent: <SettingsSVG />,
@@ -16,14 +17,16 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
     },
   ];
   return (
-    <div
+    <div className={`${isSidebarOpen ? 'w-[20%]' : 'w-[0%]'} z-30 `}>
+      {/* <div
       className={`${
         isSidebarOpen ? 'w-[20%]' : null
       } h-screen flex-shrink-0 z-30 overflow-x-hidden bg-token-sidebar-surface-primary`}
-    >
+    > */}
+      {/* Toggle logic */}
       {!isSidebarOpen ? (
         <button
-          class='fixed z-30 flex justify-items-center cursor-pointer  opacity-100 hover:opacity-85 left-4 top-2 hover: border-none'
+          className='fixed z-30 flex justify-items-center cursor-pointer  opacity-100 hover:opacity-85 left-4 top-2 hover: border-none'
           onClick={toggleSidebar}
         >
           <svg viewBox='0 0 100 80' fill='#62b4cf' width='25' height='25'>
@@ -55,17 +58,17 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
                 + New Chat
               </button>
             </div>
-            <div className='h-[75%]'>
+            <div className='h-[70%] border overflow-scroll'>
               {/* Use map function to loop the chat history */}
               {[1, 2, 3, 4, 5].map((item, index) => (
                 <div
                   key={index}
-                  className='py-3 rounded  text-center mt-4 text-light flex items-center justify-center cursor-pointer hover:bg-slate-600'
+                  className='py-3 rounded text-center mt-4 text-light flex items-center justify-center cursor-pointer hover:bg-slate-600'
                 >
                   <span className='mr-2'>
                     <ChatHistoryMsgSVG />
                   </span>
-                  <h1>Chat History</h1>
+                  <span>Chat History</span>
                 </div>
               ))}
             </div>
@@ -77,22 +80,9 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
                   className='mt-4 py-2 hover:bg-gray-700 cursor-pointer border rounded flex items-center justify-center'
                 >
                   <span className='mr-2'>{svg.iconComponent}</span>
-                  <h1>{svg.iconName}</h1>
+                  <span>{svg.iconName}</span>
                 </li>
               ))}
-              {/* <li className='mt-4 py-2 hover:bg-gray-700 cursor-pointer border rounded'>
-                <span>
-                  <SettingsSVG />
-                </span>
-                Settings
-              </li>
-              <li className='mt-4 py-2 hover:bg-gray-700 cursor-pointer border rounded'>
-                <span>
-                  <ProfileSVG />
-                </span>
-                Profile
-              </li> */}
-              {/* Add more sidebar links as needed */}
             </ul>
           </div>
         </div>
