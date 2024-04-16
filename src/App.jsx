@@ -24,7 +24,7 @@ function App() {
         } flex-1 flex-col`}
       >
         {/* Chat Result Display Area */}
-        <div className='h-[80%] flex  flex-col justify-center items-center'>
+        <div className='h-[85%] flex  flex-col justify-center items-center'>
           <img src={gptLogo} alt='chatgpt-logo' className='w-12 h-12' />
           <div className='text-xl font-bold mb-4'>
             How can I help you today?
@@ -32,7 +32,7 @@ function App() {
           <DisplayResults />
         </div>
         {/* Chat Search Area */}
-        <div className='h-[20%] rounded mx-6 mb-4'>
+        <div className='h-[15%] rounded mx-6 mb-4'>
           <SearchQueries />
         </div>
       </div>

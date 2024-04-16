@@ -16,14 +16,14 @@ const SearchQueries = () => {
       <div className='w-[85%] flex items-center hover:outline-none border border-y-0 border-gray-400 rounded-xl relative'>
         <textarea
           rows='1'
-          className='absolute bottom-0 w-full min-h-14 max-h-32 p-4 px-8 rounded-md border border-gray-400 bg-transparent no-scrollbar'
+          className='absolute bottom-0 w-full min-h-14 max-h-32 p-4 px-8 rounded-md border border-gray-400 bg-transparent no-scrollbar focus:outline-none'
           type='text'
           placeholder='Message GPT ...'
           value={message}
           onChange={handleMessage}
           ref={textAreaRef}
         />
-        <SendSVG />
+        <SendSVG message={message} />
       </div>
 
       <small className='mt-2'>
