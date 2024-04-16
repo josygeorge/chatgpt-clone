@@ -7,6 +7,7 @@ const DisplayResults = () => {
     'How to use tailwind css with React JS',
     'How to use tailwind css with Next JS',
   ];
+
   return (
     <div className='flex flex-wrap max-w-[900px] justify-around'>
       {preTrainedQueries.map((query, idx) => (
