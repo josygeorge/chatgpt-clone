@@ -15,20 +15,58 @@ function App() {
 
   const chatDemo = [
     {
-      role: 'User',
+      id: 1,
+      role: 'You',
       message: 'Can I know how to implement Tailwind CSS in my project',
     },
     {
-      role: 'Assistant',
-      message: 'I can help you with that. Here are the steps.',
+      id: 2,
+      role: 'GPT',
+      message:
+        'I can help you with that. Here are the steps. I can help you with that. Here are the steps.',
     },
     {
-      role: 'User',
+      id: 3,
+      role: 'You',
       message:
         'Can I know how to implement Tailwind CSS in my project with Typescript',
     },
     {
-      role: 'Assistant',
+      id: 4,
+      role: 'GPT',
+      message: 'I can help you with that. Here are the steps with an example.',
+    },
+    {
+      id: 5,
+      role: 'You',
+      message:
+        'Can I know how to implement Tailwind CSS in my project with Typescript',
+    },
+    {
+      id: 6,
+      role: 'GPT',
+      message: 'I can help you with that. Here are the steps with an example.',
+    },
+    {
+      id: 7,
+      role: 'You',
+      message:
+        'Can I know how to implement Tailwind CSS in my project with Typescript',
+    },
+    {
+      id: 8,
+      role: 'GPT',
+      message: 'I can help you with that. Here are the steps with an example.',
+    },
+    {
+      id: 9,
+      role: 'You',
+      message:
+        'Can I know how to implement Tailwind CSS in my project with Typescript',
+    },
+    {
+      id: 10,
+      role: 'GPT',
       message: 'I can help you with that. Here are the steps with an example.',
     },
   ];
@@ -45,14 +83,20 @@ function App() {
       >
         {/* Chat Result Display Area */}
         {chatDemo.length > 0 ? (
-          <div className='h-[85%] overflow-scroll no-scrollbar pt-8'>
+          <div className='h-[75%] flex flex-col justify-center items-center overflow-scroll no-scrollbar pt-52'>
             {chatDemo.map((item, idx) => (
               <div
-                key={`${item.role}-${item.idx}`}
-                className='w-[85%] flex items-center border mx-auto p-2'
+                key={item.id}
+                className={`w-[75%] mx-auto px-4 py-2 ${
+                  item.role === 'GPT' ? 'bg-cyan-950' : 'bg-gray-800'
+                } `}
               >
-                <span className='mr-6 p-2 bg-slate-600'>{item.role}:</span>
-                <div>{item.message}</div>
+                <div className='relative flex w-full flex-col justify-start items-start flex-grow max-w-full'>
+                  <span className='font-bold text-slate-200'>{item.role}</span>
+                  <div className='min-h-[20px] text-message whitespace-pre-wrap break-words'>
+                    {item.message}
+                  </div>
+                </div>
               </div>
             ))}
           </div>

@@ -12,11 +12,11 @@ const SearchQueries = () => {
     setMessage(e.target.value);
   };
   return (
-    <div className='flex flex-col justify-center items-center w-full h-full'>
-      <div className='w-[85%] flex items-center hover:outline-none border border-y-0 border-gray-400 rounded-xl relative'>
+    <div className='mt-20 flex flex-col justify-center items-center w-full h-full'>
+      <div className='relative w-[85%] flex items-center hover:outline-none border border-y-0 border-gray-400 rounded-xl '>
         <textarea
           rows='1'
-          className='absolute bottom-0 w-full min-h-14 max-h-32 p-4 px-8 rounded-md border border-gray-400 bg-transparent no-scrollbar focus:outline-none'
+          className='absolute bottom-0 w-full min-h-14 max-h-24 p-4 px-8 rounded-md border border-gray-400 bg-transparent no-scrollbar focus:outline-none'
           type='text'
           placeholder='Message GPT ...'
           value={message}
@@ -26,7 +26,7 @@ const SearchQueries = () => {
         <SendSVG message={message} />
       </div>
 
-      <small className='mt-2'>
+      <small className='absolute bottom-0 m-1'>
         GPT can make mistakes. Consider checking important information.
       </small>
     </div>
