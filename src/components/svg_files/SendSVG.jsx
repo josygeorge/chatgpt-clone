@@ -2,7 +2,7 @@ import React from 'react';
 
 const SendSVG = () => {
   return (
-    <div className=' absolute cursor-pointer right-2 bg-zinc-700 hover:bg-zinc-600 rounded-lg'>
+    <div className=' absolute bottom-3 cursor-pointer right-2 bg-zinc-700 hover:bg-zinc-400 rounded-lg'>
       <svg
         xmlns='http://www.w3.org/2000/svg'
         width='30'
