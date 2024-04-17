@@ -1,5 +1,7 @@
 import React from 'react';
 import gptLogo from '../../assets/ai-chatgpt.svg';
+import ChatUserSVG from '../svg_files/ChatUserSVG';
+import ChatbotSVG from '../svg_files/ChatbotSVG';
 
 const DisplayResults = ({ chatDemo }) => {
   const preTrainedQueries = [
@@ -14,9 +16,14 @@ const DisplayResults = ({ chatDemo }) => {
       {chatDemo.length > 0 ? (
         <div className='h-[80%] py-8 overflow-scroll no-scrollbar'>
           {chatDemo.map((chat, idx) => (
-            <div className='w-[80%] mx-auto p-6 flex flex-col justify-start items-start'>
-              <span className='font-bold text-slate-200'>{chat.role}</span>
-              <div key={chat.id}>{chat.message}</div>
+            <div className='w-[80%] mx-auto p-6 flex justify-start items-start'>
+              <span className='mr-4 p-2 bg-zinc-700 rounded-full'>
+                {chat.role === 'You' ? <ChatUserSVG /> : <ChatbotSVG />}
+              </span>
+              <div className='flex-col'>
+                <span className='font-bold text-slate-200'>{chat.role}</span>
+                <div key={chat.id}>{chat.message}</div>
+              </div>
             </div>
           ))}
         </div>
