@@ -17,7 +17,7 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
     },
   ];
   return (
-    <div className={`${isSidebarOpen ? 'w-[25%]' : 'w-[0%]'} z-30 `}>
+    <div className={`${isSidebarOpen ? 'w-[20%]' : 'w-[0%]'} z-30 `}>
       {/* <div
       className={`${
         isSidebarOpen ? 'w-[20%]' : null

@@ -12,23 +12,25 @@ const SearchQueries = () => {
     setMessage(e.target.value);
   };
   return (
-    <div className='mt-20 flex flex-col justify-center items-center w-full h-full'>
-      <div className='relative w-[85%] flex items-center hover:outline-none border border-y-0 border-gray-400 rounded-xl '>
-        <textarea
-          rows='1'
-          className='absolute bottom-0 w-full min-h-14 max-h-24 p-4 px-8 rounded-md border border-gray-400 bg-transparent no-scrollbar focus:outline-none'
-          type='text'
-          placeholder='Message GPT ...'
-          value={message}
-          onChange={handleMessage}
-          ref={textAreaRef}
-        />
-        <SendSVG message={message} />
-      </div>
+    <div className='h-[20%] border'>
+      <div className='flex flex-col justify-center items-center w-full h-full'>
+        <div className='w-[80%] flex justify-center items-center relative hover:outline-none'>
+          <textarea
+            className='w-full min-h-12 max-h-20 p-3 px-8 pr-16 rounded-md border border-gray-400 bg-transparent no-scrollbar focus:outline-none'
+            type='text'
+            placeholder='Message GPT ...'
+            rows='1'
+            value={message}
+            onChange={handleMessage}
+            ref={textAreaRef}
+          ></textarea>
+          <SendSVG message={message} />
+        </div>
 
-      <small className='absolute bottom-0 m-1'>
-        GPT can make mistakes. Consider checking important information.
-      </small>
+        <small className='absolute bottom-1'>
+          GPT can make mistakes. Consider checking important information.
+        </small>
+      </div>
     </div>
   );
 };
